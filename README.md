@@ -12,15 +12,15 @@
   4. Normal Event
 
   ### Fighting
-  ![Gif of Fighting](https://www.crcv.ucf.edu/projects/real-world/fighting.gif)
+  ![Gif of Fighting](/attachments/fighting.gif)
 
   ### Gun-Event
-  ![Gif of Gun-Event](https://www.crcv.ucf.edu/projects/real-world/shooting.gif)
+  ![Gif of Gun-Event](/attachments/shooting.gif)
 
   ### Arson & Explosion
-  ![Gif of Arson & Explosion](https://www.crcv.ucf.edu/projects/real-world/arson.gif)
+  ![Gif of Arson & Explosion](/attachments/arson.gif)
 
   ### Normal Event
-  ![Gif of Normal Event](https://www.crcv.ucf.edu/projects/real-world/normal.gif)
+  ![Gif of Normal Event](/attachments/normal.gif)
 
 
