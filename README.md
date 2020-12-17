@@ -28,7 +28,7 @@
   
 ### Video Segmentation
   We are using openCV for video segmentation. The approach we follow is to identify the motion from the video. We do this by taking absolute difference in series of frames and combining those results to get a well segmented portion. This approach is very fast. We were able to process 400+ Frames through this video segmentation technique in one Second.
-  ![Gif of Normal Event](/attachments/Segmentation.jpeg)
+  ![Video Segmentation](/attachments/Segmentation.jpg)
   
 
 ### Approach
