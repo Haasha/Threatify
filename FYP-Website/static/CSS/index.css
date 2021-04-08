@@ -1,0 +1,24 @@
+.background{
+    position:absolute;
+    top:0;
+
+    background-color: blue;
+    height: 100%;
+    width: 100%;
+    opacity: 70%;
+    z-index: 1;
+}
+.background-img{
+    background-image: url("../Images/signInBackground.jpg");
+    height: 100%;
+
+  /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+}
+
+body,html{
+    height:100%;
+}
