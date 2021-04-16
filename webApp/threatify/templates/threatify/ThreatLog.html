@@ -1,0 +1,121 @@
+{% extends "threatify/Base.html" %}
+
+{% block HeaderFiles %}
+<!--<link rel="stylesheet" href="../static/CSS/navbar.css">-->
+{% endblock HeaderFiles %}
+
+{% block BreadCrumb %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Dashboard</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Threat Log</li>
+    </ol>
+</nav>
+{% endblock BreadCrumb %}
+
+
+{% block Dashboard %}
+{% endblock Dashboard %}
+
+{% block Cameras %}
+{% endblock Cameras %}
+
+{% block ThreatLog %}
+active
+{% endblock ThreatLog %}
+
+{% block Content %}
+{%load static%}
+<div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col-10">
+        <table class="table table-hover" id="myTable">
+          <thead>
+              <tr>
+                  <th width=5%></th>
+                  <th width=5%>Thumbnail</th>
+                  <th width=30% data-sortable="true">TimeStamp</th>
+                  <th width=20%>Category</th>
+                  <th width=20%>Duration</th>
+                  <th width=10%>Camera ID</th>
+              </tr>
+          </thead>
+          <tbody class="panel">
+
+              <tr>
+                  <td class="align-middle"><input type="checkbox" class="larger" aria-label="Checkbox for following text input"></td>
+                  <td data-toggle="collapse" data-target="#Log3" data-parent="#myTable">
+                      <img src="{% static 'threatify/Images/3737307.png' %}" alt="" class="img-fluid">
+                  </td>
+                  <td data-toggle="collapse" data-target="#Log3" data-parent="#myTable" class="align-middle">05 May 2013</td>
+                  <td data-toggle="collapse" data-target="#Log3" data-parent="#myTable" class="align-middle">Arson&Explosion</td>
+                  <td data-toggle="collapse" data-target="#Log3" data-parent="#myTable" class="align-middle" class="text-success">5 min</td>
+                  <td data-toggle="collapse" data-target="#Log3" data-parent="#myTable" class="align-middle" class="text-error">1</td>
+
+              </tr>
+              <tr id="Log3" class="collapse">
+                <td colspan=3 width=40% class="hiddenRow">
+                    <video controls>
+                      <source src="{% static 'threatify/Videos/Arson053_x264.mp4' %}" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+<!--                  <div class="embed-responsive embed-responsive-16by9">-->
+<!--                    <iframe class="embed-responsive-item" src="{% static 'threatify/Videos/Arson053_x264.mp4' %}" loading="lazy"></iframe>-->
+<!--                  </div>-->
+                </td>
+              </tr>
+              <tr>
+                  <td class="align-middle"><input type="checkbox" class="larger" aria-label="Checkbox for following text input"></td>
+                  <td data-toggle="collapse" data-target="#Log2" data-parent="#myTable">
+                      <img src="{% static 'threatify/Images/3737316.jpg' %}" alt="" class="img-fluid">
+                  </td>
+                  <td data-toggle="collapse" data-target="#Log2" data-parent="#myTable" class="align-middle">05 May 2013</td>
+                  <td data-toggle="collapse" data-target="#Log2" data-parent="#myTable" class="align-middle">Gun-Event</td>
+                  <td data-toggle="collapse" data-target="#Log2" data-parent="#myTable" class="align-middle" class="text-success">1 min</td>
+                  <td data-toggle="collapse" data-target="#Log2" data-parent="#myTable" class="align-middle" class="text-error">1</td>
+              </tr>
+              <tr id="Log2" class="collapse">
+                <td colspan=3 width=40% class="hiddenRow">
+                    <video controls>
+                      <source src="{% static 'threatify/Videos/Shooting003_x264.mp4' %}" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+<!--                  <div class="embed-responsive embed-responsive-16by9">-->
+<!--                    <iframe class="embed-responsive-item" src="{% static 'threatify/Videos/Shooting003_x264.mp4' %}" loading="lazy"></iframe>-->
+<!--                  </div>-->
+                </td>
+              </tr>
+              <tr>
+                  <td class="align-middle">
+                    <input type="checkbox" class="larger" aria-label="Checkbox for following text input">
+                  </td>
+                  <td data-toggle="collapse" data-target="#Log1" data-parent="#myTable">
+                      <img src="{% static 'threatify/Images/4294525.jpg' %}" alt="" style="width:100%">
+                  </td>
+                  <td data-toggle="collapse" data-target="#Log1" data-parent="#myTable" class="align-middle">05 May 2013</td>
+                  <td data-toggle="collapse" data-target="#Log1" data-parent="#myTable" class="align-middle">Arson&Explosion</td>
+                  <td data-toggle="collapse" data-target="#Log1" data-parent="#myTable" class="align-middle" class="text-success">60 min</td>
+                  <td data-toggle="collapse" data-target="#Log1" data-parent="#myTable" class="align-middle" class="text-error">2</td>
+              </tr>
+              <tr id="Log1" class="collapse">
+                  <td colspan=3 width=40% class="hiddenRow">
+                      <video controls>
+                      <source src="{% static 'threatify/Videos/Arson005_x264.mp4' %}" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+<!--                    <div class="embed-responsive embed-responsive-16by9">-->
+<!--                      <iframe class="embed-responsive-item" src="{% static 'threatify/Videos/Arson005_x264.mp4' %}" loading="lazy"></iframe>-->
+<!--                    </div>-->
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+      </div>
+
+    </div>
+
+</div>
+{% endblock Content %}
+
+{% block Modals %}
+{% endblock Modals %}

@@ -1,0 +1,13 @@
+http://131.95.3.162:80/mjpg/video.mjpg 						source(http://www.insecam.org/en/view/238286/)
+http://77.243.103.105:8081/mjpg/video.mjpg 					source(http://www.insecam.org/en/view/349155/)
+http://137.59.226.170:82/webcapture.jpg?command=snap&channel=1?COUNTER 		source(http://www.insecam.org/en/view/847279/)
+http://185.205.249.70:80/webcapture.jpg?command=snap&channel=1?COUNTER 		source(http://www.insecam.org/en/view/914075/)
+http://119.194.38.96:8000/webcapture.jpg?command=snap&channel=1?COUNTER 	source(http://www.insecam.org/en/view/898395/)
+http://50.199.215.185:80/mjpg/video.mjpg 					source(http://www.insecam.org/en/view/827414/)
+http://201.108.22.78:80/mjpg/video.mjpg						source(http://www.insecam.org/en/view/913847/)
+rtsp://root:pass@201.108.22.78:554/mpeg4/media.amp
+
+http://125.0.108.88:8001/cgi-bin/viewer/video.jpg?r=COUNTER			source(http://www.insecam.org/en/view/914110/)
+rtsp://125.0.108.88:554/live.sdp
+
+rtsp://http://178.167.185.77:554/live2.sdp

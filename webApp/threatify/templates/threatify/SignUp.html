@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  {% load static %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="{% static 'threatify/CSS/index.css' %}">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <link rel="shortcut icon" href="{% static 'threatify/Images/Threatify_without.ico' %}">
+  <title>Threatify</title>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="row d-flex align-items-center justify-content-center" style="height: 100vh;">
+      <div class="col-md-5 pt-2 transparent col-8">
+        <form action="" method="POST" id="Form">
+          {% csrf_token %}
+          <div class="col-12 pt-2 d-flex justify-content-center">
+            <img src="{% static 'threatify/Images/Threatify.png' %}" alt=" Threatify Icon" class="img-fluid" style="width:40%;">
+          </div>
+          <div class="col-12 pt-2 pb-2 d-flex justify-content-center">
+            <h1>Register</h1>
+          </div>
+          <div class="col-12 d-flex justify-content-center">
+            <p class="text-success"><br>{{Response}}</p>
+          </div>
+          <div class="col-12 pt-2 pb-2 d-flex justify-content-center">
+            <input type="text" placeholder="Name" class="form-control" name="Name">
+          </div>
+          <div class="col-12 pt-2 pb-2 d-flex justify-content-center">
+            <input type="email" placeholder="Email" class="form-control" name="Email">
+          </div>
+          <div class="col-12 pt-2 pb-2 d-flex justify-content-center">
+            <input type="password" placeholder="Password" class="form-control" name="Password">
+          </div>
+          <div class="col-12 pt-2 pb-2 d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary">Register</button>
+          </div>
+          <div class="col-12 pt-2 pb-2 ">
+            <h5> Already have an account? <a href="inverse/">Sign In Here...</a></h5></h5>
+            </h5>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+  </div>
+
+
+
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <link rel="shortcut icon" href="../static/Images/Threatify_without.ico">
+
+  <title>Threatify</title>
+  <style>
+    input.larger {
+      width: 1rem;
+      height: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col-10">
+        <table class="table table-hover" id="myTable">
+          <thead>
+              <tr>
+                  <th width=5%></th>
+                  <th width=5%>Thumbnail</th>
+                  <th width=30% data-sortable="true">TimeStamp</th>
+                  <th width=20%>Category</th>
+                  <th width=20%>Duration</th>
+                  <th width=10%>Camera ID</th>
+              </tr>
+          </thead>
+          <tbody class="panel">
+            
+              <tr>
+                  <td class="align-middle"><input type="checkbox" class="larger" aria-label="Checkbox for following text input"></td>
+                  <td data-toggle="collapse" data-target="#Log3" data-parent="#myTable"><img src="../static/Images/3737307.png" alt="" class="img-fluid"></td>
+                  <td data-toggle="collapse" data-target="#Log3" data-parent="#myTable" class="align-middle">05 May 2013</td>
+                  <td data-toggle="collapse" data-target="#Log3" data-parent="#myTable" class="align-middle">Arson&Explosion</td>
+                  <td data-toggle="collapse" data-target="#Log3" data-parent="#myTable" class="align-middle" class="text-success">5 min</td>
+                  <td data-toggle="collapse" data-target="#Log3" data-parent="#myTable" class="align-middle" class="text-error">1</td>
+                  
+              </tr>
+              <tr id="Log3" class="collapse">
+                <td colspan=3 width=40% class="hiddenRow">
+                  <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="../static/Videos/Arson053_x264.mp4"></iframe>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                  <td class="align-middle"><input type="checkbox" class="larger" aria-label="Checkbox for following text input"></td>
+                  <td data-toggle="collapse" data-target="#Log2" data-parent="#myTable"><img src="../static/Images/4294525.jpg" alt="" class="img-fluid"></td>
+                  <td data-toggle="collapse" data-target="#Log2" data-parent="#myTable" class="align-middle">05 May 2013</td>
+                  <td data-toggle="collapse" data-target="#Log2" data-parent="#myTable" class="align-middle">Gun-Event</td>
+                  <td data-toggle="collapse" data-target="#Log2" data-parent="#myTable" class="align-middle" class="text-success">1 min</td>
+                  <td data-toggle="collapse" data-target="#Log2" data-parent="#myTable" class="align-middle" class="text-error">1</td>
+              </tr>
+              <tr id="Log2" class="collapse">
+                <td colspan=3 width=40% class="hiddenRow">
+                  <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="../static/Videos/Shooting003_x264.mp4"></iframe>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                  <td class="align-middle">
+                    <input type="checkbox" class="larger" aria-label="Checkbox for following text input">
+                  </td>
+                  <td data-toggle="collapse" data-target="#Log1" data-parent="#myTable"><img src="../static/Images/banner.jpg" alt="" style="width:100%"></td>
+                  <td data-toggle="collapse" data-target="#Log1" data-parent="#myTable" class="align-middle">05 May 2013</td>
+                  <td data-toggle="collapse" data-target="#Log1" data-parent="#myTable" class="align-middle">Arson&Explosion</td>
+                  <td data-toggle="collapse" data-target="#Log1" data-parent="#myTable" class="align-middle" class="text-success">60 min</td>
+                  <td data-toggle="collapse" data-target="#Log1" data-parent="#myTable" class="align-middle" class="text-error">2</td>
+              </tr>
+              <tr id="Log1" class="collapse">
+                  <td colspan=3 width=40% class="hiddenRow">
+                    <div class="embed-responsive embed-responsive-16by9">
+                      <iframe class="embed-responsive-item" src="../static/Videos/Arson005_x264.mp4"></iframe>
+                    </div>
+                  </td>
+              </tr>
+              <tr id="Log2" class="collapse">
+                <td colspan=3 width=40% class="hiddenRow">
+                  <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="../static/Videos/Shooting003_x264.mp4"></iframe>
+                  </div>
+                </td>
+              </tr>
+          </tbody>
+      </table>
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,157 @@
+{% extends "threatify/Base.html" %}
+
+{% block HeaderFiles %}
+{% load static %}
+  <link rel="stylesheet" href="{% static 'threatify/CSS/navbar.css' %}">
+{% endblock HeaderFiles %}
+
+{% block BreadCrumb %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Cameras</li>
+        </ol>
+    </nav>
+{% endblock BreadCrumb %}
+
+
+{% block Dashboard %}
+{% endblock Dashboard %}
+
+{% block Cameras %}
+active
+{% endblock Cameras %}
+
+{% block ThreatLog %}
+{% endblock ThreatLog %}
+
+{% block Content %}
+<div class="container-fluid">
+    <div class="row d-flex justify-content-center my-5">
+        <!-- button 1  -->
+        <div class="col-3 d-flex justify-content-center">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">
+                Add Camera
+            </button>
+        </div>
+        <!-- button 2  -->
+        <div class="col-3 d-flex justify-content-center">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateModal">
+                Update Camera
+            </button>
+        </div>
+        <!-- button 3  -->
+        <div class="col-3 d-flex justify-content-center">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteModal">
+                Delete Camera
+            </button>
+        </div>
+    </div>
+    <!-- HERE WE START FETCHING STREAMS FROM THE DATABASE -->
+    <div class="row d-flex justify-content-center">
+        {% for feedsId,feedsUrl,types in Feeds %}
+        <div class="col-lg-3 col-md-5 col-sm-7 col-11 my-1 mx-2">
+            {% ifequal types "Youtube" %}
+            <iframe class = "vid" id="{{feedsId}}" src="{{feedsUrl}}" title="YouTube video"
+                allowfullscreen loading="lazy"></iframe>
+            {% else %}
+            <img class="vid" id="{{feedsId}}" src="{{feedsUrl}}" allowfullscreen loading="lazy" >
+            {% endifequal %}
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+{% endblock Content %}
+
+{% block Modals %}
+<!-- Modal for Adding -->
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModal"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addModal">Add Camera</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <label for="exampleInputEmail1">Enter Camera ID</label>
+                <input type="email" class="form-control" id="exampleInputEmail1"
+                    aria-describedby="emailHelp" placeholder="ahmed_123">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                    else.</small>
+
+                <label for="pass">Enter Password</label>
+                <input type="password" class="form-control" id="pass" aria-describedby="emailHelp">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal for Updating -->
+<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModal"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updateModal">Update Camera</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <label for="exampleInputEmail1">Enter Camera ID</label>
+                <input type="email" class="form-control" id="exampleInputEmail1"
+                    aria-describedby="emailHelp" placeholder="ahmed_123">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                    else.</small>
+
+                <label for="pass">Enter Password</label>
+                <input type="password" class="form-control" id="pass" aria-describedby="emailHelp">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for Deleting -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModal"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModal">Delete Camera</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <label for="exampleInputEmail1">Enter Camera ID</label>
+                <input type="email" class="form-control" id="exampleInputEmail1"
+                    aria-describedby="emailHelp" placeholder="ahmed_123">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                    else.</small>
+
+                <label for="pass">Enter Password</label>
+                <input type="password" class="form-control" id="pass" aria-describedby="emailHelp">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock Modals %}

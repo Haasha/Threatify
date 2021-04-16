@@ -1,0 +1,16 @@
+body {
+    background-image: url("../Images/IndexBackground.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    background-size: 100% 100%;
+  }
+
+#Form{
+  background: #e8eae6;
+  border-radius: 10px;
+  display:block;
+}
+
+.transparent{
+  opacity: 95%;
+}

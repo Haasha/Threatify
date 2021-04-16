@@ -1,0 +1,13 @@
+.breadcrumb {
+  margin-bottom: 0;
+  background-color: white;
+}
+.vid {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding-left: 5%;
+  padding-right: 5%;
+}

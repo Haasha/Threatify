@@ -1,0 +1,4 @@
+pip install django-import-export
+pip install django-timezone-field
+pip install django-countries
+pip install django-cities

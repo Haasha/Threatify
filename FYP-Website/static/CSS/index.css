@@ -1,24 +1,25 @@
-.background{
-    position:absolute;
-    top:0;
-
-    background-color: blue;
-    height: 100%;
-    width: 100%;
-    opacity: 70%;
-    z-index: 1;
-}
-.background-img{
-    background-image: url("../Images/signInBackground.jpg");
-    height: 100%;
-
-  /* Center and scale the image nicely */
-    background-position: center;
+body {
+    background-image: url("../Images/maxim-hopman-IayKLkmz6g0-unsplash.jpg");
     background-repeat: no-repeat;
-    background-size: cover;
-    z-index: -1;
+    background-attachment: fixed; 
+    background-size: 100% 100%;
+  }
+
+#SignIn{
+  background: #e8eae6;
+  border-radius: 10px;
+  display:block;
 }
 
-body,html{
-    height:100%;
+.transparent{
+  opacity: 95%;
+}
+
+#Register{
+  background: #e8eae6;
+  border-radius: 10px;
+  display:none;
+}
+.btn-left{
+  border-radius: 10px 0px 0 px 10px;
 }
