@@ -1,0 +1,93 @@
+{% extends "threatify/Base.html" %}
+
+{% block HeaderFiles %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'threatify/CSS/Test.css' %}">
+{% endblock HeaderFiles %}
+
+{% block BreadCrumb %}
+<!--<nav aria-label="breadcrumb">-->
+<!--    <ol class="breadcrumb">-->
+<!--        <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Dashboard</a></li>-->
+<!--        <li class="breadcrumb-item active" aria-current="page">Threat Log</li>-->
+<!--    </ol>-->
+<!--</nav>-->
+{% endblock BreadCrumb %}
+
+
+{% block Dashboard %}
+{% endblock Dashboard %}
+
+{% block Cameras %}
+{% endblock Cameras %}
+
+{% block ThreatLog %}
+{% endblock ThreatLog %}
+
+{% block recorded %}
+active
+{% endblock recorded %}
+
+{% block Content %}
+{%load static%}
+
+{% if upload == True %}
+<div class="container-fluid">
+    <div class="row d-flex justify-content-center my-5">
+        <div class="col-4 d-flex justify-content-center text-white form-group">
+            <form action="" method="POST" id="UploadFile" enctype="multipart/form-data">
+                {% csrf_token %}
+                <label for="file">.mp4 files supported only</label>
+                
+                <input type="file" class="form-control-file" id="file" name="file" accept="video/mp4,video/x-m4v,video/*">
+                <button type="submit" class="btn btn-primary my-5 mx-5">Upload</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% if upload == False %}
+<div class="container">
+    <div class="row my-5 d-flex justify-content-center">
+        <div class="col-4 d-flex justify-content-center">
+            <h4 class="text-white" id="Status">Processing</h4>
+        </div>
+        <div class="col-12">
+            <script>
+                function get{{fileName}}(){
+                    $.ajax({
+                        type: 'GET',
+                        cache: false,
+                        url: 'http://39.40.21.148:8000/recorded/{{fileName}}/',
+                        success: function(resp){
+                            res = JSON.parse(resp)
+                            $("#Progress").css({"width": res['percentage'] +"%"})
+                            $("#threatCount").text("Instances Found:"+res['threatCount'])
+                            if (res['percentage'] == 100){
+                                $("#Status").text("Processing Completed.");
+                                clearInterval(interval);
+                            }
+                        }
+                    });
+                }
+
+                $(document).ready(function(){
+                    var interval = setInterval(get{{fileName}}, 2000);
+                });
+            </script>
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 0%" id="Progress"></div>
+            </div>
+            
+        </div>
+        <div class="col-4 d-flex justify-content-center">
+            <h4 class="text-white" id="threatCount">Instances Found:0</h4>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock Content %}
+
+{% block Modals %}
+{% endblock Modals %}

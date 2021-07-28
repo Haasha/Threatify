@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>settings</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/CSS/navbar.css">
+    <script src="../JS/click.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="col-md-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Camera Streaming</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <button type="button" class="btn btn-link" onclick="Switch(1)">General Settings</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button type="button" class="btn btn-link" onclick="Switch(2)">Motion Detection</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button type="button" class="btn btn-link" onclick="Switch(3)">Crime Detection</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-9" id="general">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td width=40%>Name:</td>
+                            <td width=40% id="nameText">Ahmed</td>
+                            <td id="nameInput" style="display:none;"><input type="text" id="nameInput1"
+                                    value="Ahmed"></td>
+                            <td width=20%><button type="button" class="btn btn-link" onclick="inverse('name')">Edit</button></td>
+                        </tr>
+                        <tr>
+                            <td>Email:</td>
+                            <td>ahmednizamani@gmail.com</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>PhoneNo:</td>
+                            <td id="phoneText">03113106528</td>
+                            <td id="phoneInput" style="display:none;"><input type="text" id="phoneInput1"
+                                    value="03113106528"></td>
+                            <td><button type="button" class="btn btn-link" onclick="inverse('phone')">Edit</button></td>
+
+                        </tr>
+                        <tr>
+                            <td>SSN:</td>
+                            <td id="ssnText">123</td>
+                            <td id="ssnInput" style="display:none;"><input type="text" id="ssnInput1" value="123"></td>
+                            <td><button type="button" class="btn btn-link" onclick="inverse('ssn')">Edit</button></td>
+                        </tr>
+                        <tr>
+                            <td>Address</td>
+                            <td id="addressText">house123</td>
+                            <td id="addressInput" style="display:none;"><input type="text" id="addressInput1"
+                                    value="house123"></td>
+                            <td><button type="button" class="btn btn-link" onclick="inverse('address')">Edit</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>City:</td>
+                            <td id="cityText">Hyderabad</td>
+                            <td id="cityInput" style="display:none;"><input type="text" id="cityInput1"
+                                    value="Hyderabad"></td>
+                            <td><button type="button" class="btn btn-link" onclick="inverse('city')">Edit</button>
+                        </tr>
+                        <tr>
+                            <td>Country:</td>
+                            <td id="countryText">Pakistan</td>
+                            <td id="countryInput" style="display:none;"><input type="text" id="countryInput1"
+                                    value="Pakistan"></td>
+                            <td><button type="button" class="btn btn-link" onclick="inverse('country')">Edit</button>
+                        </tr>
+                        <tr>
+                            <td>Longitude:</td>
+                            <td id="longitudeText">13.5</td>
+                            <td id="longitudeInput" style="display:none;"><input type="text" id="longitudeInput1"
+                                    value="13.5"></td>
+                            <td><button type="button" class="btn btn-link" onclick="inverse('longitude')">Edit</button>
+                        </tr>
+                        <tr>
+                            <td>Lattitude:</td>
+                            <td id="lattitudeText">10.5</td>
+                            <td id="lattitudeInput" style="display:none;"><input type="text" id="lattitudeInput1"
+                                    value="10.5"></td>
+                            <td><button type="button" class="btn btn-link" onclick="inverse('lattitude')">Edit</button>
+                        </tr>
+                        <tr>
+                            <td>Timezone:</td>
+                            <td id="timezoneText">UTC+5</td>
+                            <td id="timezoneInput" style="display:none;"><input type="text" id="timezoneInput1"
+                                    value="UTC+5"></td>
+                            <td><button type="button" class="btn btn-link" onclick="inverse('timezone')">Edit</button>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-9" id="motion" style="display:none;">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td width=40%>Motion Detection:</td>
+                            <td width=40% id="m_detectionText">False</td>
+                            <td id="m_detectionInput" style="display:none;"><input type="text" id="m_detectionInput1"
+                                value="False"></td>
+                        <td width=20%><button type="button" class="btn btn-link" onclick="inverse('m_detection')">Edit</button>
+                        </tr>
+                        <tr>
+                            <td>Motion Alert:</td>
+                            <td id="m_alertText">False</td>
+                            <td id="m_alertInput" style="display:none;"><input type="text" id="m_alertInput1"
+                                    value="False"></td>
+                            <td><button type="button" class="btn btn-link" onclick="inverse('m_alert')">Edit</button>
+                        </tr>
+                        <tr>
+                            <td>Motion Sensitivity:</td>
+                            <td id="m_sensitivityText">95%</td>
+                            <td id="m_sensitivityInput" style="display:none;"><input type="text" id="m_sensitivityInput1"
+                                    value="95%"></td>
+                            <td><button type="button" class="btn btn-link" onclick="inverse('m_sensitivity')">Edit</button>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-9" id="crime" style="display:none;">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td width=40%>Crime Detection:</td>
+                            <td width=40% id="c_detectionText">False</td>
+                            <td id="c_detectionInput" style="display:none;"><input type="text" id="c_detectionInput1"
+                                value="False"></td>
+                        <td width=20%><button type="button" class="btn btn-link" onclick="inverse('c_detection')">Edit</button>
+                        </tr>
+                        <tr>
+                            <td>Crime Alert:</td>
+                            <td id="c_alertText">False</td>
+                            <td id="c_alertInput" style="display:none;"><input type="text" id="c_alertInput1"
+                                    value="False"></td>
+                            <td><button type="button" class="btn btn-link" onclick="inverse('c_alert')">Edit</button>
+                        </tr>
+                        <tr>
+                            <td>Crime Sensitivity:</td>
+                            <td id="c_sensitivityText">95%</td>
+                            <td id="c_sensitivityInput" style="display:none;"><input type="text" id="c_sensitivityInput1"
+                                    value="95%"></td>
+                            <td><button type="button" class="btn btn-link" onclick="inverse('c_sensitivity')">Edit</button>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -24,8 +24,7 @@ SECRET_KEY = '71p5e+wvle#i99yv5@acvihw@=dar65$z^8$zwx@3+*y%i^#s%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["100.77.13.59", "192.168.0.100", "97fa0c31972c.ngrok.io", "127.0.0.1"]
-
+ALLOWED_HOSTS = ["127.0.0.1","39.40.21.148","192.168.1.100"]
 # Application definition
 
 INSTALLED_APPS = [
@@ -118,6 +117,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
 IMPORT_EXPORT_USE_TRANSACTIONS = True
 
 SESSION_COOKIE_AGE = 300

@@ -2,16 +2,16 @@
 
 {% block HeaderFiles %}
 {% load static %}
-  <link rel="stylesheet" href="{% static 'threatify/CSS/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'threatify/CSS/Test.css' %}">
 {% endblock HeaderFiles %}
 
 {% block BreadCrumb %}
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Dashboard</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Cameras</li>
-        </ol>
-    </nav>
+<!--    <nav aria-label="breadcrumb">-->
+<!--        <ol class="breadcrumb">-->
+<!--            <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Dashboard</a></li>-->
+<!--            <li class="breadcrumb-item active" aria-current="page">Cameras</li>-->
+<!--        </ol>-->
+<!--    </nav>-->
 {% endblock BreadCrumb %}
 
 
@@ -25,23 +25,26 @@ active
 {% block ThreatLog %}
 {% endblock ThreatLog %}
 
+{% block recorded %}
+{% endblock recorded %}
+
 {% block Content %}
 <div class="container-fluid">
     <div class="row d-flex justify-content-center my-5">
         <!-- button 1  -->
-        <div class="col-3 d-flex justify-content-center">
+        <div class="col-2 d-flex justify-content-center">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">
                 Add Camera
             </button>
         </div>
         <!-- button 2  -->
-        <div class="col-3 d-flex justify-content-center">
+        <div class="col-2 d-flex justify-content-center">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateModal">
                 Update Camera
             </button>
         </div>
         <!-- button 3  -->
-        <div class="col-3 d-flex justify-content-center">
+        <div class="col-2 d-flex justify-content-center">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteModal">
                 Delete Camera
             </button>
@@ -49,14 +52,50 @@ active
     </div>
     <!-- HERE WE START FETCHING STREAMS FROM THE DATABASE -->
     <div class="row d-flex justify-content-center">
-        {% for feedsId,feedsUrl,types in Feeds %}
-        <div class="col-lg-3 col-md-5 col-sm-7 col-11 my-1 mx-2">
-            {% ifequal types "Youtube" %}
-            <iframe class = "vid" id="{{feedsId}}" src="{{feedsUrl}}" title="YouTube video"
-                allowfullscreen loading="lazy"></iframe>
-            {% else %}
-            <img class="vid" id="{{feedsId}}" src="{{feedsUrl}}" allowfullscreen loading="lazy" >
-            {% endifequal %}
+        {% for feedsId,feedsLocation, feedsUrl,types in Feeds %}
+        <div class="col-lg-4 col-md-5 col-sm-7 col-11 my-4 mx-2">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-center text-white">
+                        CameraID:{{forloop.counter}}
+                    </div>
+                    <div class="col-12 d-flex justify-content-center text-white">
+                        Location:{{feedsLocation}}
+                    </div>
+                    <div class="col-12 d-flex justify-content-center">
+                        <script>
+                            function get{{feedsId}}(){
+                                $.ajax({
+                                    type: 'GET',
+                                    cache: false,
+                                    url: 'http://39.40.21.148:8000/camera/{{feedsId}}/',
+                                    success: function(resp){
+                                        res = JSON.parse(resp)
+                                        $('#{{feedsId}}').attr('src', res['frame']);
+                                    }
+                                });
+                            }
+                            
+                            $(document).ready(function(){
+                                {% ifequal types "CCTV" %}
+                                    setInterval(get{{feedsId}}, 400);
+                                {% endifequal %}
+                                {% ifequal types "IP-Camera" %}
+                                    setInterval(get{{feedsId}}, 1000);
+                                {% endifequal %}
+                                
+                            });
+                        </script>
+                        {% ifequal types "Youtube" %}
+                        <iframe id="{{feedsId}}" src="" allowfullscreen loading="lazy"></iframe>
+                        {% else %}
+                        <img class="vid" id="{{feedsId}}" loading="lazy" >
+                        {% endifequal %}
+                    </div>
+                </div>
+            </div>
+
+
         </div>
         {% endfor %}
     </div>
@@ -77,21 +116,22 @@ active
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-
-            <div class="modal-body">
-                <label for="exampleInputEmail1">Enter Camera ID</label>
-                <input type="email" class="form-control" id="exampleInputEmail1"
-                    aria-describedby="emailHelp" placeholder="ahmed_123">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                    else.</small>
-
-                <label for="pass">Enter Password</label>
-                <input type="password" class="form-control" id="pass" aria-describedby="emailHelp">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+            <form action="add/" method="POST" id="AddForm">
+                {% csrf_token %}
+                <div class="modal-body">
+                    <label>Location</label>
+                    <input type="text" class="form-control" name="Location" placeholder="Garage/Front Lawn">
+                    <label>URL/FilePath</label>
+                    <input type="text" class="form-control" name="URL" placeholder="http://131.95.3.162:80/mjpg/video.mjpg">
+                    <label>UserName</label>
+                    <input type="password" class="form-control" name="UserName" placeholder="root">
+                    <label>Password</label>
+                    <input type="password" class="form-control" name="Password" placeholder="abc">
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -106,21 +146,29 @@ active
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+            <form action="update/" method="POST" id="UpdateForm">
+                {% csrf_token %}
 
-            <div class="modal-body">
-                <label for="exampleInputEmail1">Enter Camera ID</label>
-                <input type="email" class="form-control" id="exampleInputEmail1"
-                    aria-describedby="emailHelp" placeholder="ahmed_123">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                    else.</small>
-
-                <label for="pass">Enter Password</label>
-                <input type="password" class="form-control" id="pass" aria-describedby="emailHelp">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+                <div class="modal-body">
+                    <select class="custom-select" name="feedsDropDown" id="feedsDropDown">
+                        <option value="None" selected>Choose...</option>
+                        {% for feedID, feedLocation, feedUrl,feedUserName,feedPassword in Updates %}
+                            <option value="{{feedID}}">CameraID:{{forloop.counter}}</option>
+                        {% endfor %}
+                    </select>
+                    <label>Location</label>
+                    <input type="text" class="form-control" name="Location" placeholder="Garage/Front Lawn">
+                    <label>URL/FilePath</label>
+                    <input type="text" class="form-control" name="URL" placeholder="http://131.95.3.162:80/mjpg/video.mjpg">
+                    <label>UserName</label>
+                    <input type="password" class="form-control" name="UserName" placeholder="root">
+                    <label>Password</label>
+                    <input type="password" class="form-control" name="Password" placeholder="abc">
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -137,20 +185,20 @@ active
                 </button>
             </div>
 
-            <div class="modal-body">
-                <label for="exampleInputEmail1">Enter Camera ID</label>
-                <input type="email" class="form-control" id="exampleInputEmail1"
-                    aria-describedby="emailHelp" placeholder="ahmed_123">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                    else.</small>
-
-                <label for="pass">Enter Password</label>
-                <input type="password" class="form-control" id="pass" aria-describedby="emailHelp">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+            <form action="delete/" method="POST" id="DeleteForm">
+                {% csrf_token %}
+                <div class="modal-body">
+                    <select class="custom-select" name="feedsDropDown2" id="feedsDropDown2">
+                        <option value="None" selected>Choose...</option>
+                        {% for feedsID in None %}
+                            <option value="{{feedsID}}">CameraID:{{forloop.counter}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Delete</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

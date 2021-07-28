@@ -4,17 +4,17 @@
 <head>
   {% load static %}
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-  {% block HeaderFiles %}
-  {% endblock HeaderFiles %}
+  <link rel="stylesheet" href="{% static 'threatify/CSS/Base.css' %}">
   <link rel="shortcut icon" href="{% static 'threatify/Images/Threatify_without.ico' %}">
-
+    <script src ="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <title>Threatify</title>
+    {% block HeaderFiles %}
+  {% endblock HeaderFiles %}
 </head>
 
 <body>
@@ -26,14 +26,17 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item mx-5 {% block Dashboard %}{% endblock Dashboard %}">
-          <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
-        </li>
+<!--        <li class="nav-item mx-5 {% block Dashboard %}{% endblock Dashboard %}">-->
+<!--          <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>-->
+<!--        </li>-->
         <li class="nav-item mx-5 {% block Cameras %}{% endblock Cameras %}">
           <a class="nav-link" href="{% url 'camera' %}">Cameras</a>
         </li>
         <li class="nav-item mx-5 {% block ThreatLog %}{% endblock ThreatLog %}">
           <a class="nav-link" href="{% url 'threatLog' %}">Threat Log</a>
+        </li>
+        <li class="nav-item mx-5 {% block recorded %}{% endblock recorded %}">
+          <a class="nav-link" href="{% url 'recorded' %}">Recorded</a>
         </li>
       </ul>
       <ul class="navbar-nav">
@@ -42,8 +45,8 @@
             <img src="{% static 'threatify/Images/User3.jpg' %}" width="40" height="40" class="rounded-circle">
           </a>
           <div class="dropdown-menu dropdown-menu-right bg-dark" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item text-light" href="{% url 'settings' %}">Settings</a>
-            <div class="dropdown-divider"></div>
+            <!-- <a class="dropdown-item text-light" href="{% url 'settings' %}">Settings</a>
+            <div class="dropdown-divider"></div> -->
             <a class="dropdown-item text-light" href="{% url 'logout' %}">Logout</a>
           </div>
         </li>
@@ -59,9 +62,9 @@
 
   {% block Modals %}
   {% endblock Modals %}
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
+<!--  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"-->
+<!--    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"-->
+<!--    crossorigin="anonymous"></script>-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
     integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
     crossorigin="anonymous"></script>

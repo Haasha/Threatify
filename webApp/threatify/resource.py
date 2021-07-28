@@ -8,7 +8,9 @@ class User_Resource(resources.ModelResource):
         model = User
         import_id_fields = (
             'UserID', 'Name', 'Email', 'Password', 'Phone', 'SSN', 'AddressLine1', 'AddressLine2', 'City', 'Country',
-            'Longitude', 'Latitude', 'TimeZone',)
+            'Longitude', 'Latitude', 'TimeZone', 'MotionDetection',
+            'MotionAlert', 'MotionSensitivity', 'CrimeDetection', 'CrimeAlert',
+            'CrimeSensitivity',)
 
 
 class User_Admin(ImportExportModelAdmin):
@@ -19,9 +21,7 @@ class Feed_Resource(resources.ModelResource):
     class Meta:
         model = User
         import_id_fields = (
-            'UserID', 'CameraID', 'CameraLocation', 'Url', 'UserName', 'Password', 'MotionDetection',
-            'MotionAlert', 'MotionSensitivity', 'CrimeDetection', 'CrimeAlert',
-            'CrimeSensitivity')
+            'UserID', 'CameraID', 'CameraLocation', 'Url', 'UserName', 'Password',)
 
 
 class Feed_Admin(ImportExportModelAdmin):
